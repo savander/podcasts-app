@@ -12,10 +12,12 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "inertiajs/inertia-laravel": "^0.3.6",
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.9",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",
@@ -57,6 +59,21 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "refresh": [
+            "@php artisan cache:clear",
+            "@php artisan config:clear",
+            "@php artisan route:clear",
+            "@php artisan storage:link --quiet",
+            "@php artisan migrate:fresh",
+            "@php artisan db:seed"
+        ],
+        "ide-helper": [
+            "@php artisan clear-compiled --quiet",
+            "@php artisan ide-helper:eloquent --quiet",
+            "@php artisan ide-helper:generate --quiet",
+            "@php artisan ide-helper:meta --quiet",
+            "@php artisan ide-helper:models --write-mixin --smart-reset --quiet"
         ]
     }
 }
